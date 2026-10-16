@@ -1,0 +1,10 @@
+{
+  "description": "Discover and order delicious sweet and savory lumpia with ease on a modern, user-friendly website designed for culinary enthusiasts and casual snackers.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
