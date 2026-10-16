@@ -81,6 +81,9 @@ const formatPrice = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value)
 
+const assetUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`
+
 function Icon({ name, size = 20 }: { name: string size?: number }) {
   const paths: Record<string, React.ReactNode> = {
     arrow: (
@@ -324,7 +327,7 @@ export default function App() {
             onClick={() => scrollTo("beranda")}
             aria-label="Kembali ke beranda"
           >
-            <img src="/assets/lumlump-logo.png" alt="Logo LumLump" />
+            <img src={assetUrl("/assets/lumlump-logo.png")} alt="Logo LumLump" />
             <span>LumLump</span>
           </button>
           <nav
@@ -401,7 +404,7 @@ export default function App() {
             <div className="hero-visual">
               <div className="hero-image-wrap">
                 <img
-                  src="/assets/products/LumpiaKornetSosis.jpeg"
+                  src={assetUrl("/assets/products/LumpiaKornetSosis.jpeg")}
                   alt="Lumpia sosis dan kornet LumLump"
                 />
                 <span className="photo-note">Lumpia Sosis + Kornet</span>
@@ -415,7 +418,7 @@ export default function App() {
                 <small>Gurih & renyah</small>
               </div>
               <div className="logo-stamp">
-                <img src="/assets/lumlump-logo.png" alt="" />
+                <img src={assetUrl("/assets/lumlump-logo.png")} alt="" />
               </div>
             </div>
           </div>
@@ -469,7 +472,7 @@ export default function App() {
                 <article className="product-card" key={product.id}>
                   <div className="product-image">
                     <img
-                      src={product.image}
+                      src={assetUrl(product.image)}
                       alt={`Placeholder foto ${product.name}`}
                     />
                     <span className={`category-badge ${product.category}`}>
@@ -637,7 +640,7 @@ export default function App() {
               <aside className="order-summary">
                 <span className="summary-label">Ringkasan pesanan</span>
                 <div className="summary-product">
-                  <img src={selectedProduct.image} alt="" />
+                  <img src={assetUrl(selectedProduct.image)} alt="" />
                   <div>
                     <strong>{selectedProduct.name}</strong>
                     <span>
@@ -690,13 +693,13 @@ export default function App() {
                 {team.map((member) => (
                   <img
                     key={member.name}
-                    src={member.image}
+                    src={assetUrl(member.image)}
                     alt={member.name}
                   />
                 ))}
               </div>
               <div className="about-logo">
-                <img src="/assets/lumlump-logo.png" alt="Logo LumLump" />
+                <img src={assetUrl("/assets/lumlump-logo.png")} alt="Logo LumLump" />
               </div>
               <span className="about-caption">
                 Dibuat bersama,
@@ -741,7 +744,7 @@ export default function App() {
             <div className="team-grid">
               {team.map((member) => (
                 <article className="team-card" key={member.name}>
-                  <img src={member.image} alt={member.name} />
+                  <img src={assetUrl(member.image)} alt={member.name} />
                   <strong>{member.name}</strong>
                 </article>
               ))}
@@ -941,7 +944,7 @@ export default function App() {
                     aria-label={`Buka Instagram LumLump: ${name}`}
                   >
                     <img
-                      src={`/assets/products/${image}`}
+                      src={assetUrl(`/assets/products/${image}`)}
                       alt={name}
                     />
                     <span>
@@ -958,7 +961,7 @@ export default function App() {
       <footer id="kontak">
         <div className="container footer-top">
           <div className="footer-brand">
-            <img src="/assets/lumlump-logo.png" alt="Logo LumLump" />
+            <img src={assetUrl("/assets/lumlump-logo.png")} alt="Logo LumLump" />
             <p>
               Lumer di Mulut,
               <br />
